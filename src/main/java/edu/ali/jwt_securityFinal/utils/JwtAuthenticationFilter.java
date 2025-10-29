@@ -1,6 +1,6 @@
 package edu.ali.jwt_securityFinal.utils;
 
-import edu.ali.jwt_security.jwt.JwtUtil;
+import edu.ali.jwt_securityFinal.jwt.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
