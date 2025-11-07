@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+// Table to represent user roles in the system
 @Entity
 @Table(name = "roles")
 public class Role {
