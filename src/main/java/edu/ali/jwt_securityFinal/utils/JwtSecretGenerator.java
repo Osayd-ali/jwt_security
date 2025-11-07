@@ -6,6 +6,7 @@ import io.jsonwebtoken.security.MacAlgorithm;
 
 import javax.crypto.SecretKey;
 
+// Utility class to generate a Base64-encoded secret key for JWT signing
 public class JwtSecretGenerator {
     public static void main(String[] args) {
         // Obtain the MacAlgorithm instance for HS256
