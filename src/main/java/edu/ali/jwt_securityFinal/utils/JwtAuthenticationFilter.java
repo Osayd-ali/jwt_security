@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// This filter intercepts incoming HTTP requests to validate JWT tokens and set the authentication context.
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -47,6 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (header != null && header.startsWith("Bearer ")) {
             token = header.substring(7);
             try {
+                // extracting username from the token
                 username = jwtUtil.extractUsername(token);
             } catch (Exception e) {
                 log.error("JWT parsing failed: {}", e.getMessage());
@@ -62,25 +64,33 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
+        // if we have a username and no authentication is set in the context
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
+            // For the above line, we are loading user details from the database using the extracted username.
+            // Below line, if true, that is if the token is valid for the given user details run the authentication process.
             if (jwtUtil.validateToken(token, userDetails)) {
+                // extracting roles from the token
                 List<String> roles = jwtUtil.extractRoles(token);
 
+                // converting roles to GrantedAuthority objects
                 var authorities = roles.stream()
                         .map(role -> new SimpleGrantedAuthority(role))
                         .collect(Collectors.toList());
 
+                // creating authentication token
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, authorities);
 
+                // setting authentication details
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
+                // setting the authentication in the security context
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
 
+        // continue the filter chain
         filterChain.doFilter(request, response);
     }
 }
