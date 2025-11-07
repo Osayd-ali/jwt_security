@@ -12,6 +12,8 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+// This filter implements a global rate limiter based on client IP addresses.
+// It restricts the number of requests a client can make within a specified time window.
 @Component
 public class GlobalRateLimiterFilter extends OncePerRequestFilter {
 
@@ -31,7 +33,7 @@ public class GlobalRateLimiterFilter extends OncePerRequestFilter {
 
         RequestWindow window = ipRequests.computeIfAbsent(ip, k -> new RequestWindow());
 
-        synchronized (window) {
+        synchronized (window) { // Synchronize on the window object to ensure thread safety, for multiple requests coming from same IP
             if (now.isAfter(window.windowStart.plusMillis(WINDOW_MS))) {
                 window.windowStart = now;
                 window.requestCount = 1;
