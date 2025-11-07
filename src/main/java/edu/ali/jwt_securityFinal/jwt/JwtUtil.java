@@ -14,13 +14,14 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.crypto.SecretKey;
 
+// Utility class for generating and validating JWT tokens
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.secret}") // Injecting secret key from application properties
     private String jwtSecret;
 
-    @Value("${jwt.expirationMs}")
+    @Value("${jwt.expirationMs}") // Injecting token expiration time from application properties
     private long jwtExpirationMs;
 
     private SecretKey getSigningKey() {
@@ -45,13 +46,13 @@ public class JwtUtil {
 
     public Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .verifyWith(getSigningKey())
+                .verifyWith(getSigningKey()) // Verify signature
                 .build()
-                .parseSignedClaims(token)
-                .getPayload();
+                .parseSignedClaims(token)// Parse JWT
+                .getPayload();// Get Claims (Payload part of JWT)
     }
 
-    public List<String> extractRoles(String token) {
+    public List<String> extractRoles(String token) { // extracting roles from JWT
         Claims claims = extractAllClaims(token);
         return claims.get("roles", List.class);
     }
@@ -63,6 +64,7 @@ public class JwtUtil {
     public boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
+        // Checking if the username matches and the token is not expired
     }
 
     private Claims parseClaims(String token) {
