@@ -1,12 +1,11 @@
 # 🔐 SecuringRestfulAPIs--JWTAuthentication-and-RoleBasedAuthorisation
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-brightgreen)
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6.2-green)
 ![JWT](https://img.shields.io/badge/JWT-0.12.3-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
 ![Maven](https://img.shields.io/badge/Maven-3.9-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 > Enterprise-grade RESTful API security implementation featuring JWT-based stateless authentication, database-backed user management, and comprehensive role-based access control (RBAC).
 
@@ -30,7 +29,6 @@
 - [Project Structure](#-project-structure)
 - [Future Enhancements](#-future-enhancements)
 - [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
@@ -1160,20 +1158,11 @@ Contributions are welcome! Please follow these steps:
 - Maintain code coverage above 80%
 - Use meaningful commit messages
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+**Mir Osayd Ali**
+- GitHub: [@Osayd-ali](https://github.com/Osayd-ali)
+- LinkedIn: [Mir Osayd Ali](https://www.linkedin.com/in/mir-osayd-ali-7681a0260/)
 
 ---
 
@@ -1181,25 +1170,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Spring Framework Team for excellent documentation
 - JWT.io for JWT resources
-- Baeldung for Spring Security tutorials
-- Stack Overflow community
+- in28minutes for Spring Security tutorials
 
----
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/yourusername/SecuringRestfulAPIs--JWTAuthentication-and-RoleBasedAuthorisation/issues) page
-2. Create a new issue with detailed description
-3. Contact via email: your.email@example.com
-
----
-
-## ⭐ Star This Repository
-
-If you found this project helpful, please consider giving it a ⭐ on GitHub!
-
----
 
 **Built with ❤️ using Spring Boot and JWT**
