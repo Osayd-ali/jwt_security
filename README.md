@@ -799,7 +799,7 @@ Public endpoint - No authentication required
 
 #### **Controller Layer**
 
-**AssignmentTestController.java**
+**EndpointController.java**
 - REST API endpoints for authentication and testing
 - Login endpoint (public)
 - Role-specific endpoints (USER, ADMIN, MANAGER)
