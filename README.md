@@ -129,7 +129,7 @@ This project demonstrates a production-ready implementation of secure RESTful AP
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  ┌────────────────────────────────────────────────────────┐    │
-│  │  AssignmentTestController                              │    │
+│  │  EndpointController                              │    │
 │  │  - POST   /api/login                                   │    │
 │  │  - GET    /api/user/useronly       [@PreAuthorize]    │    │
 │  │  - GET    /api/admin/adminonly     [@PreAuthorize]    │    │
