@@ -701,7 +701,7 @@ Public endpoint - No authentication required
 | | SecurityConfig | `SecurityConfig.java` | Security configuration |
 | | CustomAuthenticationEntryPoint | `CustomAuthenticationEntryPoint.java` | 401 error handler |
 | | CustomAccessDeniedHandler | `CustomAccessDeniedHandler.java` | 403 error handler |
-| **Controllers** | AssignmentTestController | `AssignmentTestController.java` | REST API endpoints |
+| **Controllers** | EndpointController | `AssignmentTestController.java` | REST API endpoints |
 | **Utils** | JwtSecretGenerator | `JwtSecretGenerator.java` | Generate JWT secret key |
 
 ---
